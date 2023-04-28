@@ -15,6 +15,7 @@ def connect_db(app):
     db.app = app
     db.init_app(app)
 
+
 class Pet(db.Model):
     """"create instances of Pet"""
 
@@ -22,37 +23,38 @@ class Pet(db.Model):
 
     id = db.Column(
         db.Integer,
-        autoincrement = True,
+        autoincrement=True,
         primary_key=True
     )
 
     name = db.Column(
         db.String(50),
-        nullable = False
+        nullable=False
     )
 
     species = db.Column(
         db.String(50),
-        nullable = False
+        nullable=False
     )
 
     photo_url = db.Column(
         db.String(150),
-        nullable = False,
-        default = ""
+        nullable=False,
+        default=""
     )
-
+# not nullable
     age = db.Column(
         db.String(20)
         # choices about baby and senoir and such?
     )
 
+# Not nullable, not empty
     notes = db.Column(
         db.String
     )
 
     available = db.Column(
         db.Boolean,
-        nullable = False,
-        default = True
+        nullable=False,
+        default=True
     )

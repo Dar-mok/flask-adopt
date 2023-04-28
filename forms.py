@@ -10,16 +10,17 @@ class PetForm(FlaskForm):
 
     name = StringField("Pet name")
     species = SelectField('Species',
-    choices=[('cat', 'Cat'), ('dog', 'Dog'), ('porcupine', 'Porcupine')]
-)
-    #cat, dog, porcupine
+                          choices=[('cat', 'Cat'), ('dog', 'Dog'),
+                                   ('porcupine', 'Porcupine')]
+                          )
 
     photo_url = StringField("Enter photo URL", validators=[Optional(), URL()])
 
     age = SelectField('Age',
-    choices=[('baby', 'Baby'), ('young', 'Young'), ('adult', 'Adult'),('senior', 'Senior')])
+                      choices=[('baby', 'Baby'), ('young', 'Young'), ('adult', 'Adult'), ('senior', 'Senior')])
 
     notes = StringField("Additional info")
+
 
 class EditPet(FlaskForm):
     """form for editing pets"""
