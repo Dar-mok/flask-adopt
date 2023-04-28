@@ -43,7 +43,7 @@ class Pet(db.Model):
     )
 
     age = db.Column(
-        db.String(3)
+        db.String(20)
         # choices about baby and senoir and such?
     )
 

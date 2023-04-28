@@ -2,10 +2,11 @@
 
 import os
 
-from flask import Flask, render_template, flash
+from flask import Flask, render_template, flash, redirect
 from flask_debugtoolbar import DebugToolbarExtension
 
 from models import connect_db, db, Pet
+from forms import PetForm
 
 app = Flask(__name__)
 
@@ -34,11 +35,22 @@ def show_homepage():
 @app.route("/add", methods=["GET", "POST"])
 def show_pet_form():
     """render the pet intake form"""
-    form = Pet()
+    form = PetForm()
 
     if form.validate_on_submit():
-        #probs add data from form to DB and then redirect user
-        redirect
+        #access all of the data
+        name = form.name.data
+        species = form.species.data
+        photo_url = form.photo_url.data
+        age = form.age.data
+        notes = form.notes.data
+
+        new_pet = Pet(name=name, species=species, photo_url=photo_url, age=age, notes=notes)
+        db.session.add(new_pet)
+        db.session.commit()
+
+        flash('Pet Added')
+        return redirect('/')
 
     else:
         return render_template("add_pet_form.html", form=form)
