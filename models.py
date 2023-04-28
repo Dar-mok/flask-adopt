@@ -22,36 +22,37 @@ class Pet(db.Model):
 
     id = db.Column(
         db.Integer,
-        autoincrementing = True
+        autoincrement = True,
+        primary_key=True
     )
 
     name = db.Column(
-        type = VARCHAR(50),
+        db.String(50),
         nullable = False
     )
 
     species = db.Column(
-        type = VARCHAR(50),
+        db.String(50),
         nullable = False
     )
 
     photo_url = db.Column(
-        type = VARCHAR(150),
+        db.String(150),
         nullable = False,
         default = ""
     )
 
     age = db.Column(
-        type = VARCHAR(3)
+        db.String(3)
         # choices about baby and senoir and such?
     )
 
     notes = db.Column(
-        type = TEXT
+        db.String
     )
 
     available = db.Column(
-        type = BOOLEAN,
+        db.Boolean,
         nullable = False,
         default = True
     )

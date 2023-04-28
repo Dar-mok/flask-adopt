@@ -5,7 +5,7 @@ import os
 from flask import Flask, render_template, flash
 from flask_debugtoolbar import DebugToolbarExtension
 
-from models import connect_db
+from models import connect_db, db, Pet
 
 app = Flask(__name__)
 
@@ -29,4 +29,4 @@ def show_homepage():
 
     all_pets = Pet.query.all()
 
-    render_template("")
+    return render_template("homepage.html", pets=all_pets)
