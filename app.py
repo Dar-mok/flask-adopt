@@ -30,3 +30,19 @@ def show_homepage():
     all_pets = Pet.query.all()
 
     return render_template("homepage.html", pets=all_pets)
+
+@app.route("/add", methods=["GET", "POST"])
+def show_pet_form():
+    """render the pet intake form"""
+    form = Pet()
+
+    if form.validate_on_submit():
+        #probs add data from form to DB and then redirect user
+        redirect
+
+    else:
+        return render_template("add_pet_form.html", form=form)
+
+
+
+

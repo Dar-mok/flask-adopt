@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<a href="/add"><button>Add a Pet!</button></a>
 
 {% for pet in pets %}
 
@@ -15,5 +16,6 @@
 {% endif %}
 
 {% endfor %}
+
 
 {% endblock %}
