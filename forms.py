@@ -8,13 +8,13 @@ from wtforms.validators import InputRequired, Optional, Email, URL
 class PetForm(FlaskForm):
     """Create a from for accepting pets using wtforms"""
 
-    name = StringField("Pet name")
+    name = StringField("Pet name", validators=[Length(50)])
     species = SelectField('Species',
                           choices=[('cat', 'Cat'), ('dog', 'Dog'),
                                    ('porcupine', 'Porcupine')]
                           )
 
-    photo_url = StringField("Enter photo URL", validators=[Optional(), URL()])
+    photo_url = StringField("Enter photo URL", validators=[Optional(), URL(), Length(150)])
 
     age = SelectField('Age',
                       choices=[('baby', 'Baby'), ('young', 'Young'), ('adult', 'Adult'), ('senior', 'Senior')])

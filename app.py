@@ -59,8 +59,7 @@ def show_pet_form():
         flash('Pet Added')
         return redirect('/')
 
-    else:
-        return render_template("add_pet_form.html", form=form)
+    return render_template("add_pet_form.html", form=form)
 
 
 @app.route("/<int:pet_id>", methods=["GET", "POST"])
@@ -86,5 +85,4 @@ def show_pet_detail_and_edit_form(pet_id):
         flash('Pet Edited')
         return redirect('/')
 
-# Be consistent with if/else blocks
     return render_template("display_and_edit.html", form=edit_form, pet=current_pet)
